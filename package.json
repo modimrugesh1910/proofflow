@@ -1,0 +1,27 @@
+{
+  "name": "proofflow",
+  "version": "1.0.0",
+  "description": "Milestone Based Funding DAO for Web3 Hackathon",
+  "main": "index.js",
+  "scripts": {
+    "compile": "npx hardhat compile",
+    "test": "npx hardhat test",
+    "deploy": "npx hardhat run scripts/deploy.js --network sepolia",
+    "node": "npx hardhat node",
+    "clean": "npx hardhat clean"
+  },
+  "author": "Mrugesh",
+  "license": "MIT",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "autoprefixer": "^10.4.27",
+    "hardhat": "^2.28.6",
+    "postcss": "^8.5.8",
+    "tailwindcss": "^4.2.1"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.9.6",
+    "dotenv": "^16.6.1",
+    "ethers": "^6.10.0"
+  }
+}
