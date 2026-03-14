@@ -1,46 +1,35 @@
 const hre = require("hardhat")
 const fs = require("fs")
 
-async function main(){
+async function main() {
 
- const Contract =
- await hre.ethers.getContractFactory("MilestoneFunding")
+  const MilestoneFunding = await hre.ethers.getContractFactory("MilestoneFunding")
+  const milestoneFunding = await MilestoneFunding.deploy()
 
- const contract = await Contract.deploy()
+  await milestoneFunding.waitForDeployment()
 
- await contract.waitForDeployment()
+  const contractAddress = await milestoneFunding.getAddress()
 
- const address =
- await contract.getAddress()
+  console.log("MilestoneFunding deployed to:", contractAddress)
 
- console.log("Contract deployed:", address)
+  // export ABI + address to frontend
+  const artifact = await hre.artifacts.readArtifact("MilestoneFunding")
 
- saveFrontendFiles(contract,address)
+  const data = {
+    address: contractAddress,
+    abi: artifact.abi
+  }
 
-}
+  fs.writeFileSync(
+    "./frontend/src/services/contractData.json",
+    JSON.stringify(data, null, 2)
+  )
 
-function saveFrontendFiles(contract,address){
-
- const data = {
-  address: address
- }
-
- fs.writeFileSync(
-  "../frontend/src/utils/contract-address.json",
-  JSON.stringify(data,null,2)
- )
-
- const artifact =
- artifacts.readArtifactSync("MilestoneFunding")
-
- fs.writeFileSync(
- "../frontend/src/services/abi.json",
- JSON.stringify(artifact.abi,null,2)
- )
+  console.log("ABI + Address exported to frontend")
 
 }
 
-main().catch((error)=>{
- console.error(error)
- process.exitCode = 1
+main().catch((error) => {
+  console.error(error)
+  process.exitCode = 1
 })

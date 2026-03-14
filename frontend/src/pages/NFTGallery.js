@@ -1,23 +1,12 @@
-import { useEffect, useState } from "react";
-import { getNFTs } from "../services/blockchain";
+import { useState } from "react"
 
-function NFTGallery() {
+function NFTGallery(){
 
-  const [nfts, setNFTs] = useState([]);
-
-  useEffect(() => {
-
-    async function loadNFTs() {
-      const data = await getNFTs();
-      setNFTs(data);
-    }
-
-    loadNFTs();
-
-  }, []);
+  const [nfts] = useState([1,2,3])
 
   return (
-    <div>
+
+    <div className="bg-white p-6 rounded shadow">
 
       <h2 className="text-xl font-bold mb-4">
         Milestone NFT Achievements
@@ -25,28 +14,25 @@ function NFTGallery() {
 
       <div className="grid grid-cols-3 gap-4">
 
-        {nfts.map((nft, i) => (
+        {nfts.map((nft,i)=>(
+          <div key={i} className="border p-4 rounded text-center">
 
-          <div
-            key={i}
-            className="border p-4 rounded text-center"
-          >
             <p className="font-bold">
               NFT #{nft}
             </p>
 
-            <p className="text-sm text-gray-500">
+            <p className="text-gray-500 text-sm">
               Milestone Achievement
             </p>
 
           </div>
-
         ))}
 
       </div>
 
     </div>
-  );
+
+  )
 }
 
-export default NFTGallery;
+export default NFTGallery
