@@ -1,28 +1,45 @@
 import ProgressBar from "./ProgressBar";
 import MilestoneCard from "./MilestoneCard";
 
-function ProjectCard() {
-  return (
-    <div className="bg-white rounded-xl shadow p-4">
+function ProjectCard({project}) {
 
-      <h3 className="font-bold text-lg">
-        Decentralized Marketplace
+  return (
+
+    <div className="bg-white rounded-xl shadow p-6 hover:shadow-xl transition">
+
+      <h3 className="text-lg font-bold mb-2">
+        {project.name}
       </h3>
 
-      <p className="text-gray-500">
-        Funding: 2 / 5 ETH
+      <p className="text-gray-500 text-sm mb-4">
+        {project.description}
       </p>
 
-      <ProgressBar progress={40} />
+      <div className="mb-4">
 
-      <button className="mt-3 bg-green-500 text-white px-3 py-1 rounded">
-        Fund
+        <div className="flex justify-between text-sm mb-1">
+          <span>Funding Progress</span>
+          <span>{project.progress}%</span>
+        </div>
+
+        <div className="w-full bg-gray-200 rounded-full h-2">
+
+          <div
+            className="bg-indigo-600 h-2 rounded-full"
+            style={{width:`${project.progress}%`}}
+          />
+
+        </div>
+
+      </div>
+
+      <button className="bg-indigo-600 text-white px-4 py-2 rounded-lg w-full hover:bg-indigo-700">
+        View Details
       </button>
 
-      <MilestoneCard />
-
     </div>
-  );
+
+  )
 }
 
-export default ProjectCard;
+export default ProjectCard

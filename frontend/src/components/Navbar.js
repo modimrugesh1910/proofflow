@@ -2,38 +2,15 @@ import WalletButton from "./WalletButton";
 
 function Navbar() {
   return (
-    <div className="bg-white shadow">
-
-      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-
-        <div className="flex items-center gap-2">
-
-          {/* Logo */}
-          <div className="bg-indigo-600 p-2 rounded-lg">
-
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 text-white"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-            >
-              <path d="M12 2L4 7v6c0 5 3.5 9.7 8 11 4.5-1.3 8-6 8-11V7l-8-5z" />
-            </svg>
-
-          </div>
-
-          <h1 className="text-xl font-bold">
-            <span className="text-indigo-600">Proof</span>
-            <span className="text-gray-800">Flow</span>
-          </h1>
-
+    <nav className="fixed top-0 w-full h-16 bg-gradient-to-r from-indigo-600 to-purple-600 shadow z-50 flex items-center px-6 justify-between">
+      <div className="flex items-center space-x-3">
+        <div className="bg-white text-indigo-600 font-bold w-8 h-8 flex items-center justify-center rounded-lg">
+          PF
         </div>
-
-        <WalletButton />
-
+        <h1 className="text-white text-xl font-bold">ProofFlow</h1>
       </div>
-
-    </div>
+      <WalletButton />
+    </nav>
   );
 }
 
