@@ -2,128 +2,142 @@
 
 ### Decentralized Milestone-Based Funding Protocol
 
-### Decentralized funding powered by milestone verification.
+![License](https://img.shields.io/badge/License-MIT-green)
+![Network](https://img.shields.io/badge/Network-Sepolia-purple)
+![Built With](https://img.shields.io/badge/Built%20With-React%20%7C%20Solidity%20%7C%20Hardhat-blue)
 
-## ✨ Core Features
+> Transparent crowdfunding powered by **milestone verification and DAO governance**
 
-🪙 Milestone-based funding  
-🗳 DAO voting mechanism  
-🔒 Smart contract escrow  
-🏆 NFT milestone achievements  
-🔍 Fully transparent on-chain records
+---
 
-ProofFlow is a decentralized platform that enables **transparent milestone-based funding for projects**.
-Funds are locked in smart contracts and released **only when milestones are approved by contributors or governance participants**.
+# 🌐 Live Demo
 
-The system also **mints NFT achievements** as proof that milestones were successfully completed.
+🔗 **Try ProofFlow**
 
-Built as a Web3 prototype for decentralized funding ecosystems.
+[https://proofflow-teal.vercel.app/project](https://proofflow-teal.vercel.app/project)
+
+⚠️ Requires **MetaMask Wallet + Sepolia Network**
+
+---
+
+# 📸 Demo Preview
+
+```md
+![ProofFlow Dashboard](screenshots/dashboard.gif)
+```
+
+```md
+![Funding](screenshots/funding.png)
+```
+
+```md
+![Milestone](screenshots/milestone.png)
+```
+
+```md
+![NFT](screenshots/nft.png)
+```
+
+---
+
+# 📌 Table of Contents
+
+1. Overview
+2. Problem
+3. Solution
+4. Core Features
+5. System Architecture
+6. Smart Contracts
+7. Tech Stack
+8. Project Structure
+9. Setup Instructions
+10. How It Works
+11. Smart Contract Addresses
+12. Impact
+13. Future Improvements
 
 ---
 
 # 🌍 Overview
 
-Traditional crowdfunding releases funds upfront, which can lead to:
+Traditional crowdfunding platforms suffer from:
 
-* Missed deliverables
-* Lack of accountability
-* Limited transparency
+* Lack of transparency
+* No accountability for project creators
+* Upfront funding risks
 
-ProofFlow introduces **milestone-based escrow funding powered by blockchain**.
+**ProofFlow introduces milestone-based escrow funding on blockchain.**
 
-Funds are **locked on-chain** and only released after milestone verification.
-
----
-
-## 🎯 Hackathon Alignment
-
-ProofFlow aligns with several Web3 innovation themes:
-
-• DeFi & Payments  
-• DAO Governance  
-• NFT Creator Economy  
-• Web3 Open Innovation  
-
-By combining these technologies, ProofFlow demonstrates how decentralized systems can improve funding transparency.
-
----
-
-## ⭐ Why This Project Matters
-
-Decentralized ecosystems depend on trustless collaboration.
-
-However, many funding platforms still rely on **trust rather than verifiable delivery**.
-
-ProofFlow introduces a transparent milestone-based funding mechanism where:
-
-• Funds are locked in smart contracts  
-• Milestones must be verified before payments  
-• Progress becomes visible and immutable on-chain  
-
-This model encourages **accountability, transparency, and trust in decentralized innovation.**
+Funds are **locked in smart contracts** and released only when milestones are verified by contributors.
 
 ---
 
 # ❗ Problem
 
-Many projects receiving grants or crowdfunding face issues:
-
-| Problem                      | Impact                              |
-| ---------------------------- | ----------------------------------- |
-| Upfront funding              | Reduced accountability              |
-| Lack of transparency         | Contributors cannot verify progress |
-| Centralized decision making  | Limited trust                       |
-| No verifiable delivery proof | Hard to track project progress      |
+| Problem                     | Impact                          |
+| --------------------------- | ------------------------------- |
+| Upfront funding             | Reduced accountability          |
+| No milestone verification   | Investors cannot track progress |
+| Centralized platforms       | Limited trust                   |
+| No proof of work completion | Hard to validate delivery       |
 
 ---
 
 # 💡 Solution
 
-ProofFlow solves this using smart contracts:
+ProofFlow solves this using:
 
-✔ Escrow-based funding
-✔ DAO-style milestone approval
-✔ Automated payment release
-✔ NFT achievement proof
-✔ Transparent on-chain funding history
-
----
-
-# ✨ Features
-
-## 🪙 Milestone Funding
-
-Projects define funding milestones with specific amounts.
-
-## 🗳 Decentralized Voting
-
-Funders vote to approve milestone completion.
-
-## 🔒 Smart Contract Escrow
-
-Funds are locked in the smart contract until approval.
-
-## 🏆 NFT Achievement Badges
-
-Creators receive NFT badges when milestones are completed.
-
-## 🔎 Transparent Blockchain History
-
-All funding and voting events are recorded on-chain.
+* 🔒 Smart contract escrow
+* 🗳 DAO milestone voting
+* 🪙 On-chain payment release
+* 🏆 NFT achievement badges
+* 🔎 Transparent blockchain records
 
 ---
 
-## 🧱 System Architecture
+# ✨ Core Features
+
+### 🪙 Milestone-Based Funding
+
+Projects define milestones with specific funding amounts.
+
+---
+
+### 🗳 DAO Governance Voting
+
+Investors vote to approve milestone completion.
+
+---
+
+### 🔒 Escrow Smart Contracts
+
+Funds stay locked until the milestone is approved.
+
+---
+
+### 🏆 NFT Achievement Rewards
+
+Creators receive **milestone NFTs** when completing milestones.
+
+---
+
+### 🔎 Transparent Blockchain History
+
+Every action is stored on-chain.
+
+---
+
+# 🧱 System Architecture
 
 ```mermaid
 flowchart LR
 
-User["👤 User / Investor"]
-Wallet["🦊 Web3 Wallet"]
+User["👤 Investor / Creator"]
+Wallet["🦊 MetaMask Wallet"]
 Frontend["🌐 React Frontend"]
-Funding["💰 Milestone Funding Contract"]
-NFT["🏆 Milestone NFT Contract"]
-Blockchain["⛓ Ethereum Blockchain"]
+Funding["💰 MilestoneFunding Contract"]
+NFT["🏆 MilestoneNFT Contract"]
+Blockchain["⛓ Ethereum Sepolia"]
 
 User --> Wallet
 Wallet --> Frontend
@@ -131,17 +145,16 @@ Frontend --> Funding
 Funding --> NFT
 Funding --> Blockchain
 NFT --> Blockchain
+```
 
 ---
-
-
 
 # 🧠 Smart Contract Modules
 
 | Contract             | Responsibility                                     |
 | -------------------- | -------------------------------------------------- |
-| MilestoneFunding.sol | Project creation, funding escrow, milestone voting |
-| MilestoneNFT.sol     | Minting milestone achievement NFTs                 |
+| MilestoneFunding.sol | Project creation, escrow funding, milestone voting |
+| MilestoneNFT.sol     | Mint milestone NFTs                                |
 
 ---
 
@@ -152,29 +165,24 @@ NFT --> Blockchain
 * React
 * TailwindCSS
 * Ethers.js
-
-### Smart Contracts
-
-* Solidity
-* Hardhat
+* React Router
 
 ### Blockchain
 
-Ethereum Sepolia Testnet
-
-### Storage (Optional)
-
-IPFS
+* Solidity
+* Hardhat
+* Ethereum Sepolia
 
 ### Deployment
 
-Vercel
+* Vercel
+* IPFS (optional)
 
 ---
 
 # 📁 Project Structure
 
-```text
+```
 proofflow
 │
 ├── contracts
@@ -191,8 +199,6 @@ proofflow
 │   │   ├── services
 │   │   ├── hooks
 │   │   └── utils
-│   │
-│   └── public
 │
 ├── hardhat.config.js
 ├── package.json
@@ -203,40 +209,32 @@ proofflow
 
 # ⚙️ Setup Instructions
 
-## 1️⃣ Clone Repository
+Clone the repository
 
 ```bash
 git clone https://github.com/modimrugesh1910/proofflow.git
 cd proofflow
 ```
 
----
-
-## 2️⃣ Install Dependencies
+Install dependencies
 
 ```bash
 npm install
 ```
 
----
-
-## 3️⃣ Compile Smart Contracts
+Compile contracts
 
 ```bash
 npx hardhat compile
 ```
 
----
-
-## 4️⃣ Deploy Contracts
+Deploy to Sepolia
 
 ```bash
 npx hardhat run scripts/deploy.js --network sepolia
 ```
 
----
-
-## 5️⃣ Run Frontend
+Start frontend
 
 ```bash
 cd frontend
@@ -246,73 +244,24 @@ npm start
 
 ---
 
-# 🔄 User Workflow Diagram
-
-```markdown
-## 🔄 How It Works
-
-```mermaid
-sequenceDiagram
-
-participant Creator
-participant Investor
-participant Frontend
-participant Contract
-participant Blockchain
-
-Creator->>Frontend: Create Project with Milestones
-Frontend->>Contract: Create Project
-Contract->>Blockchain: Store Project Data
-
-Investor->>Frontend: Fund Project
-Frontend->>Contract: Send ETH
-Contract->>Blockchain: Lock Funds
-
-Creator->>Frontend: Submit Milestone Completion
-
-Investor->>Frontend: Vote Approval
-Frontend->>Contract: Vote Milestone
-
-Contract->>Blockchain: Approve Milestone
-Contract->>Creator: Release Payment
-Contract->>Creator: Mint Milestone NFT
-
----
-
-# 📸 Screenshots
-
-### Dashboard
+# 🔄 How It Works
 
 ```
-[ Add dashboard screenshot here ]
-```
-
-### Project Funding Interface
-
-```
-[ Add project funding screenshot here ]
-```
-
-### Milestone Approval
-
-```
-[ Add milestone voting screenshot here ]
-```
-
----
-
-# 🎥 Demo
-
-### Live Demo
-
-```
-https://proofflow-teal.vercel.app/project
-```
-
-### Demo Video
-
-```
-https://youtube.com/your-demo
+Creator creates project
+        ↓
+Investors fund project
+        ↓
+Funds locked in smart contract
+        ↓
+Creator submits milestone
+        ↓
+Investors vote
+        ↓
+Milestone approved
+        ↓
+Payment released
+        ↓
+Milestone NFT minted
 ```
 
 ---
@@ -326,70 +275,35 @@ https://youtube.com/your-demo
 
 ---
 
-# 🧪 Example Transaction Flow
+# 📊 Impact
 
-```text
-Investor funds project
-        ↓
-Funds locked in smart contract
-        ↓
-Creator completes milestone
-        ↓
-DAO votes to approve milestone
-        ↓
-Smart contract releases payment
-        ↓
-Milestone NFT minted
-```
-
----
-
-## 📊 Impact
-
-ProofFlow can improve decentralized funding ecosystems by enabling:
-
-| Area | Impact |
-|-----|------|
-| Startup Funding | Ensures milestones are delivered before payments |
-| Open Source Development | Transparent funding for contributors |
-| DAO Grants | Community-controlled funding decisions |
-| Web3 Builder Ecosystems | Increased trust between funders and builders |
-
-This approach helps create **more reliable decentralized project ecosystems.**
-
----
-
-## 🧠 Key Innovation
-
-ProofFlow introduces a hybrid architecture combining:
-
-• Smart contract escrow funding  
-• DAO milestone approval  
-• NFT milestone verification  
-
-This creates a transparent funding workflow where progress and payments are **fully verifiable on-chain**.
+| Sector          | Impact                         |
+| --------------- | ------------------------------ |
+| Startup Funding | Transparent milestone payments |
+| DAO Grants      | Community driven approval      |
+| Open Source     | Verified contributions         |
+| Web3 Builders   | Increased trust                |
 
 ---
 
 # 🚀 Future Improvements
 
-* On-chain reputation scoring
 * Decentralized identity verification
-* IPFS storage for milestone proof
-* Multi-chain deployment
-* DAO governance for funding approval
-
----
-
-# 🌐 Potential Use Cases
-
-* Web3 grant programs
-* Startup accelerators
-* Open-source project funding
-* Community development funds
+* IPFS milestone proof storage
+* Multi-chain support
+* Reputation system for creators
+* DAO governance token
 
 ---
 
 # 📜 License
 
 MIT License
+
+---
+
+# ⭐ Support
+
+If you like this project, please consider **starring the repository** ⭐
+
+---
